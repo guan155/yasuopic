@@ -50,6 +50,16 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        // 添加文件大小限制
+        if (file.size > 10 * 1024 * 1024) { // 10MB
+            alert('图片大小不能超过10MB！');
+            return;
+        }
+
+        // 添加加载提示
+        compressedImage.src = ''; // 清空之前的图片
+        compressedSize.textContent = '处理中...';
+
         currentFile = file;
         originalSize.textContent = formatFileSize(file.size);
 
@@ -57,6 +67,9 @@ document.addEventListener('DOMContentLoaded', function() {
         reader.onload = (e) => {
             originalImage.src = e.target.result;
             compressImage(e.target.result, qualitySlider.value);
+        };
+        reader.onerror = () => {
+            alert('读取文件失败，请重试！');
         };
         reader.readAsDataURL(file);
 

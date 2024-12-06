@@ -170,4 +170,32 @@ input[type="range"]::-webkit-slider-thumb {
     .container {
         padding: 1rem;
     }
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .preview-section {
+        flex-direction: column;
+    }
+
+    .preview-box {
+        margin-bottom: 1rem;
+    }
+
+    .quality-control {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .quality-control label {
+        margin-bottom: 0.5rem;
+    }
 } 
